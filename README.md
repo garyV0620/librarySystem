@@ -34,7 +34,18 @@ Follow these steps to install and set up the project:
    $ npm install
      
 4. Copy .env.example file to .env on the root folder.
-    
+   For Email verification you can use this settings to .env or use your own settings
+	```dotenv
+    MAIL_MAILER=smtp
+	MAIL_HOST=smtp.gmail.com
+	MAIL_PORT=587
+	MAIL_USERNAME=vgary0620@gmail.com
+	MAIL_PASSWORD=vxqdnigbkpzikxtz
+	MAIL_ENCRYPTION=null
+	MAIL_FROM_ADDRESS="librarySystem@gmail.com"
+	MAIL_FROM_NAME="${APP_NAME}"
+	```  
+	
 5. Database Configuration:
     Edit the .env file and update the database settings according to your setup. For MariaDB, use the following configuration:
     ```dotenv
