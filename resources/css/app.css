@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.loginBox{
+    background: linear-gradient(145deg, #dbdcdd, #ffffff);
+    box-shadow:  20px 20px 60px #c0c1c2,
+                -20px -20px 60px #ffffff;
+}
+
+@media (min-width: 640px) {
+    table {
+      display: inline-table !important;
+      width: 100% !important;
+    }
+
+    thead tr:not(:first-child) {
+      display: none;
+    }
+  }
+
+  td:not(:last-child) {
+    border-bottom: 0;
+  }
+
+  th:not(:last-child) {
+    border-bottom: 2px solid rgba(0, 0, 0, .1);
+  }
