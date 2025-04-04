@@ -16,7 +16,8 @@ class Book extends Model
         'quantity',
     ];
 
-    public function users() {
+    public function users()
+    {
         return $this->belongsToMany(User::class, 'borrow_books')->withTimestamps();
     }
 }

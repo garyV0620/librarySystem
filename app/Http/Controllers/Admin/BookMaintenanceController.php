@@ -14,9 +14,9 @@ class BookMaintenanceController extends Controller
     public function index()
     {
         $books = Book::latest()->get();
-         
+
         return view('admin.bookMaintenance.show', [
-                'books' => $books,
+            'books' => $books,
         ]);
     }
 
@@ -34,14 +34,14 @@ class BookMaintenanceController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-                        'title' => ['required', 'string', 'max:255'],
-                        'author' => ['required', 'string', 'max:255'],
-                        'quantity' => ['required', 'numeric', 'min:0'],
-                    ]);
+            'title' => ['required', 'string', 'max:255'],
+            'author' => ['required', 'string', 'max:255'],
+            'quantity' => ['required', 'numeric', 'min:0'],
+        ]);
 
         $book = Book::create($validated);
 
-        return redirect(route('books.index'))->with('message', ucfirst($book->title) . ' book has beed Added!' );
+        return redirect(route('books.index'))->with('message', ucfirst($book->title).' book has beed Added!');
     }
 
     /**
@@ -58,10 +58,10 @@ class BookMaintenanceController extends Controller
     public function edit(Book $book)
     {
         $books = Book::latest()->get();
-         
+
         return view('admin.bookMaintenance.show', [
-                'books' => $books,
-                'editBook' => $book,
+            'books' => $books,
+            'editBook' => $book,
         ]);
     }
 
@@ -78,7 +78,7 @@ class BookMaintenanceController extends Controller
 
         $book->update($validated);
 
-        return redirect(route('books.index'))->with('message', ucfirst($book->title) . ' book has beed Updated!' );
+        return redirect(route('books.index'))->with('message', ucfirst($book->title).' book has beed Updated!');
     }
 
     /**
@@ -86,11 +86,12 @@ class BookMaintenanceController extends Controller
      */
     public function destroy(Book $book)
     {
-        if(!empty($book)){
+        if (! empty($book)) {
             $book->delete();
-            return redirect(route('books.index'))->with('message', ucfirst($book->title) . ' book has beed Deleted!' );
-        }else{
-            return redirect(route('books.index'))->with('error','Book not found!' );
+
+            return redirect(route('books.index'))->with('message', ucfirst($book->title).' book has beed Deleted!');
+        } else {
+            return redirect(route('books.index'))->with('error', 'Book not found!');
         }
     }
 }
